@@ -4,9 +4,6 @@ import { Stack, Box, Editable, EditablePreview, EditableInput, Text, AccordionRo
 export const Edit = () => {
 
 
-    // const dataCard = [
-    //     [orig: "Question 1", place: ""],
-    // ]
 
     const data = [
         { ques: "Q1: ", ans: "Put Answer Below" , default: "Question One"},
@@ -18,12 +15,13 @@ export const Edit = () => {
       ];
 
     return (
-        <Stack wordSpacing={4}>
+        <Stack spaceY = {'4px'}>
         {data.map((item, index) => (
 
             <AccordionRoot collapsible defaultValue={["b"]}>
             <AccordionItem key={index} value={item.ques}>
-                <Box borderWidth="3px" key={index} p="8">
+                <Box width={'450px'} borderWidth="3px" key={index} p="8">
+                    <h2>Junior Level </h2>
                 <AccordionItemTrigger> {item.default} 
                     <Editable.Root defaultValue={item.ques}>
                         <Text fontWeight= "bolder">

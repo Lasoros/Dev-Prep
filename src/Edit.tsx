@@ -1,36 +1,53 @@
-import { Stack, Box, Editable, EditablePreview, EditableInput, Text } from "@chakra-ui/react";
+import { Stack, Box, Editable, EditablePreview, EditableInput, Text, AccordionRoot, AccordionItem, AccordionItemTrigger, AccordionItemContent} from "@chakra-ui/react";
 
 
 export const Edit = () => {
 
+
+    // const dataCard = [
+    //     [orig: "Question 1", place: ""],
+    // ]
+
     const data = [
-        { ques: "Q1: ", ans: "filler filler filler" },
-        { ques: "Q2: ", ans: "filler filler filler" },
-        { ques: "Q3: ", ans: "filler filler filler" },
-        { ques: "Q4: ", ans: "filler filler filler" },
-        { ques: "Q5: ", ans: "filler filler filler" },
-        { ques: "Q6: ", ans: "filler filler filler" },
+        { ques: "Q1: ", ans: "Put Answer Below" , default: "Question One"},
+        { ques: "Q2: ", ans: "Put Answer Below" , default: "Question Two"},
+        { ques: "Q3: ", ans: "Put Answer Below" , default: "Question Three"},
+        { ques: "Q4: ", ans: "Put Answer Below" , default: "Question Four"},
+        { ques: "Q5: ", ans: "Put Answer Below" , default: "Question Five"},
+        { ques: "Q6: ", ans: "Put Answer Below" , default: "Question Six"},
       ];
 
     return (
         <Stack wordSpacing={4}>
         {data.map((item, index) => (
-          <Box borderWidth="5px" key={index} p="6">
-            <Editable.Root defaultValue={item.ques}>
-              <Text fontWeight= "bolder">
-                <EditablePreview />
-                <EditableInput />
-              </Text>
-            </Editable.Root>
+
+            <AccordionRoot collapsible defaultValue={["b"]}>
+            <AccordionItem key={index} value={item.ques}>
+                <Box borderWidth="3px" key={index} p="8">
+                <AccordionItemTrigger> {item.default} 
+                    <Editable.Root defaultValue={item.ques}>
+                        <Text fontWeight= "bolder">
+                            <EditablePreview />
+                            <EditableInput />
+                        </Text>
+                    </Editable.Root>
+                </AccordionItemTrigger>
+
+                <AccordionItemContent> {item.ans}
+
+                <Editable.Root defaultValue={item.ans}>
+                    <Text color= "white">
+                        Answer: <EditablePreview />
+                        <EditableInput />
+                    </Text>
+                </Editable.Root>
+                </AccordionItemContent>
   
-            <Editable.Root defaultValue={item.ans}>
-              <Text color="gray.600">
-                Answer: <EditablePreview />
-                <EditableInput />
-              </Text>
-            </Editable.Root>
             
-          </Box>
+                </Box>
+            </AccordionItem>
+            </AccordionRoot>
+
         ))}
       </Stack>
 

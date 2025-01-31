@@ -5,6 +5,30 @@
   text-align: center;
 }
 
+* {
+  background-color: #282c34;
+  color: white;
+  padding: 8px;
+  
+  text-align: center;
+}
+
+button {
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  background-color: #61dafb;
+  color: #282c34;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.orbitron-font {
+  font-family: "Orbitron", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
